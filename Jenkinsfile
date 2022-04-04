@@ -9,22 +9,16 @@ pipeline{
             }
 
             steps{
-                echo "========executing A========"
                 script { 
                     withSonarQubeEnv(credentialsId: 'Sonarqube-AdminTokenb') {
-                    sh 'chmod +x gradlew'
-                    sh './gradlew sonarqube'
+                        sh 'chmod +x gradlew'
+                        sh './gradlew sonarqube'
                     }
-
+                    
                 }
             }
             
         }
     }
-    post{
-        always{
-            echo "Success"
-        }
-        
-    }
+    
 }
